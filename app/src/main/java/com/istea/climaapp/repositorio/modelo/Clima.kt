@@ -4,13 +4,14 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Clima(
-    val base: String,
-    val name: String,
-    val coord: Coord,
-    val weather: List<Weather>,
-    val main: Main,
-    val wind: Wind,
-    val clouds: Clouds,
+    val base: String = "",
+    val name: String = "",
+    val coord: Coord = Coord(0.0, 0.0),
+    val weather: List<Weather> = emptyList(),
+    val main: Main = Main(0.0, 0.0, 0.0, 0.0, 0, 0),
+    val wind: Wind = Wind(0.0, 0),
+    val clouds: Clouds = Clouds(0),
+    val rain: Rain = Rain(0.0),
 )
 @Serializable
 data class Coord(
@@ -43,4 +44,9 @@ data class Wind(
 @Serializable
 data class Clouds(
     val all: Long,
+)
+
+@Serializable
+data class Rain(
+    val rain: Double = 0.0
 )
